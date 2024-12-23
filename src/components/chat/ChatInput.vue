@@ -54,9 +54,11 @@
           </div>
           <div class="vdb-c-relative vdb-c-h-full vdb-c-flex-grow">
             <textarea
+              resize:
               ref="inputRef"
               type="text"
-              class="vdb-c-chat-input vdb-c-h-full vdb-c-w-full vdb-c-bg-white vdb-c-pl-16 vdb-c-pr-8 vdb-c-font-medium vdb-c-text-[#1D2736] vdb-c-placeholder-kilvish-500 focus:vdb-c-outline-none"
+              class="vdb-c-chat-input vdb-c-h-full vdb-c-w-full vdb-c-bg-white vdb-c-pl-16 vdb-c-pr-8 vdb-c-font-medium vdb-c-text-[#1D2736] vdb-c-placeholder-kilvish-500 focus:vdb-c-outline-none vdb-c-resize-none vdb-c-flex vdb-c-items-center vdb-c-justify-center vdb-c-py-8 md:vdb-c-py-12
+"
               name="prompt"
               :placeholder="placeholder"
               autocomplete="off"
@@ -64,15 +66,9 @@
               @input="handleInput"
               @focus="inputFocused = true"
               @blur="handleBlur"
-              @keydown="handleKeyDown"
-              style="
-                resize: none;
-                min-height: 40px;
-                max-height: 25vh;
-                box-sizing: border-box;
-                padding-top: 13px;
-              "
-            ></textarea>
+              @keydown="handleKeyDown" 
+            />
+            
           </div>
           <div class="vdb-c-flex vdb-c-items-center vdb-c-justify-end">
             <button
@@ -284,6 +280,9 @@ defineExpose({
   grid-template-rows: 2fr 3fr;
 }
 
+.vdb-c-resize-none {
+  resize: none;
+}
 .context-icon {
   background: radial-gradient(circle, #ff7f40 0%, #f55100 100%);
   box-shadow: 0 0 6px 4px rgba(255, 90, 10, 0.6);
